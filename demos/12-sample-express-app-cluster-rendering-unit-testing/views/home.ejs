@@ -1,0 +1,12 @@
+<%- include( "partials/head", { title: title } ) -%>
+<h1>Home</h1>
+<p>
+    <%= welcomeMessage %>
+</p>
+<h2>Project executed</h2>
+<ul>
+    <% projectsExecuted.forEach( project => { %>
+        <li><%= project %></li>
+    <% }); %>
+</ul>
+<%- include( "partials/foot" ) -%>
