@@ -1,0 +1,18 @@
+{
+    "location": {
+        "address": "Tata Elxsi, Prestige Shantiniketan",
+        "city": "Bangalore",
+        "state": "Karnataka"
+    },
+    "modes": [
+        "online",
+        "face 2 face"
+    ],
+    "name": "React Bootcamp",
+    "description": "React is by Facebook (UI library)",
+    "startDate": "2019-01-01T04:00:00.000Z",
+    "endDate": "2019-01-03T08:00:00.000Z",
+    "startTime": "9:30 am",
+    "endTime": "1:30 pm",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png"
+}

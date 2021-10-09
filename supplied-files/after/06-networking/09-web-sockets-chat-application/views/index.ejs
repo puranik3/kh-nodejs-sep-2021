@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+        <style>
+            #chat > div {
+                overflow: hidden;
+            }
+
+            .sent, .received {
+                width: 400px;
+                border: 1px solid lightgray;
+                border-radius: 5px;
+                padding: 8px;
+            }
+
+            .sent {
+                float: left;
+                background-color: whitesmoke;
+            }
+
+            .received {
+                float: right;
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Online discussion room</h1>
+            <hr />
+            <form id="frm-nickname">
+                Choose your nickname on the forum: <input type="text" name="txt-nickname" id="txt-nickname" />
+                <input type="submit" value="Join the forum" id="btn-join" />
+            </form>
+
+            <div id="discussion-room" style="display: none;">
+                <p>
+                    You have joined the forum as <span id="nickname" style="color: crimson;"></span>
+                </p>
+                <p id="error-choosing-nickname" style="display: none;">
+                    Your nickname seems to be taken. Try joining with a different name.
+                </p>
+
+                <h3>List of users</h3>
+                <hr />
+                <ul id="nicknames"></ul>
+
+                Your message goes in here (@nickname message)
+                <textarea id="message"></textarea>
+                <input type="button" value="Send message" id="btn-send-message" /> 
+
+                <div id="chat" style="border: 1px solid black; padding: 10px;"></div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
+
+        <script>
+            $( document ).ready(function() {
+                console.log( io ); // socket io global called "io"
+                const socket = io('http://localhost:3000');
+
+                $( '#frm-nickname' ).submit(function( event ) {
+                    event.preventDefault();
+                    socket.emit( 'new user', $( '#txt-nickname' ).val(), function( data ) {
+                        console.log( data );
+                        if( data ) {
+                            $( '#nickname' ).text( data );
+                            $( '#frm-nickname' ).hide();
+                            $( '#discussion-room' ).show();
+                        } else {
+                            $( '#error-choosing-nickname' ).show();
+                        }
+                    });
+                });
+
+                socket.on( 'nicknames', function( data ) {
+                    $( '#nicknames' ).empty();
+                    data.forEach( function( nickname ) {
+                        $( '#nicknames' ).append( $( '<li>' + nickname +  '</li>' ) );
+                    });
+                });
+
+                $( '#btn-send-message' ).click(function() {
+                    const message = $( '#message' ).val();
+                    socket.emit( 'message-to-be-sent', message, function( data ) {
+                        console.log( data );
+                        $( '#chat' ).append( $( '<div><p class="sent">Sent to ' + data.receiver + '<br />' + data.message + '</p></div>' ) );                    
+                    });
+                })
+
+                // socket.on( 'sent message', function( data ) {
+                //     console.log( data );
+                //     $( '#chat' ).append( $( '<p>Sent to ' + data.nickname + '<br />' + data.message ) );
+                // });
+
+                socket.on( 'incoming message', function( data ) {
+                    console.log( data );
+                    $( '#chat' ).append( $( '<div><p class="received">Received from ' + data.sender + '<br />' + data.message + '</p></div>' ) );
+                });
+            });
+        </script>
+    </body>
+</html>

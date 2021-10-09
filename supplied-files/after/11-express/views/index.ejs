@@ -1,0 +1,20 @@
+<!-- ! and enter -->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include( 'partials/head', { title: 'Home' } ) -%>
+    <body>
+        <h1><%= name %></h1>
+        <p>This is a page rendered by EJS</p>
+        <ol>
+            <% techStack.forEach( item => { %>
+                <li><%= item %></li>
+            <% }); %>
+        </ol>
+
+        <p>
+            Also, check API routes like <a href="/workshops">/workshops</a>
+        </p>
+
+        <script src="/js/index.js"></script>
+    </body>
+</html>
