@@ -45,3 +45,5 @@
 - [Learn Redis](https://try.redis.io/)
 - [Using Redis with Node.js (node_redis)](https://docs.redislabs.com/latest/rs/references/client_references/client_nodejs/)
 - [Using Redis in Node.js - Prashanth Puranik](https://corporate-trainings.s3.amazonaws.com/dll/using-redis-in-nodejs.mp4)
+- [How To Unit Test RESTful API With Mocha & Mock MongoDB | JavaScript Testing - Kris Foster (YouTube channel)](https://www.youtube.com/watch?v=7VNgjfmv_fE&t=295s)
+- [Unit Testing Express Middleware / TDD with Express and Mocha (Morris Singer (YouTube channel)](https://www.youtube.com/watch?v=BwNMUVzo3vs&t=3132s)
