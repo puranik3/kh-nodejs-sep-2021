@@ -47,3 +47,18 @@
 - [Using Redis in Node.js - Prashanth Puranik](https://corporate-trainings.s3.amazonaws.com/dll/using-redis-in-nodejs.mp4)
 - [How To Unit Test RESTful API With Mocha & Mock MongoDB | JavaScript Testing - Kris Foster (YouTube channel)](https://www.youtube.com/watch?v=7VNgjfmv_fE&t=295s)
 - [Unit Testing Express Middleware / TDD with Express and Mocha (Morris Singer (YouTube channel)](https://www.youtube.com/watch?v=BwNMUVzo3vs&t=3132s)
+
+## Security in Node apps
+
+-   [OWASP Cheat Sheet Series Project](https://cheatsheetseries.owasp.org/index.html)
+-   [Node.js Security Checklist, RisingStack](https://blog.risingstack.com/node-js-security-checklist/)
+-   [Cookie parser middleware](https://www.npmjs.com/package/cookie-parser)
+-   [Cookie session - session data stored on client](https://www.npmjs.com/package/cookie-session)
+-   [Express session - session data stored on server](https://www.npmjs.com/package/express-session)
+-   [csurf Node module](https://github.com/expressjs/csurf)
+-   [Going surfing – Protect your Node.js app from Cross-Site Request Forgery](https://www.twilio.com/blog/2018/01/protect-your-node-js-app-from-cross-site-request-forgery.html)
+-   [StackExchange - Why is the same origin policy so important?](https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important#answer-72569)
+-   [How to Prevent Cross-Site Scripting in Node.js](https://www.section.io/engineering-education/how-to-prevent-cross-site-scripting-in-node-js/)
+-   [Preventing XSS in Node.js / server side javascript](https://stackoverflow.com/questions/3705356/preventing-xss-in-node-js-server-side-javascript)
+-   [DOMPurify for handling XSS](https://www.npmjs.com/package/dompurify)
+-   [DOMPurify examples](https://cure53.de/purify)
