@@ -9,7 +9,8 @@ router.get( '/', ( req, res ) => {
         techStack: [
             'Node',
             'Express',
-            'EJS'
+            'EJS',
+            'Redis'
         ]
     });
 });
